@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cực Bắc Countdown — Hà Giang / Sa Pa 2026</title>
+<style>
+  :root{
+    --bg:#14170f; --surface:#1b1e15; --ink:#efe9d8; --ink-soft:#c7c0aa; --muted:#948d76;
+    --border:#33361f; --gold:#d1a13c; --a:#5c8dc9; --b:#c76f3d;
+    --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
+  .wrap{max-width:760px;width:100%;}
+  .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1em;}
+  h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);margin:0 0 .3em;text-wrap:balance;}
+  p.sub{color:var(--ink-soft);max-width:60ch;margin:0 0 2.2em;}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:640px){.cards{grid-template-columns:1fr;}}
+  a.card{display:block;border:1px solid var(--border);border-radius:4px;background:var(--surface);padding:1.6em;text-decoration:none;color:var(--ink);transition:border-color .15s;}
+  a.card:hover{border-color:var(--gold);}
+  a.card .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:.3em .6em;border-radius:2px;display:inline-block;margin-bottom:.8em;}
+  a.card.a .tag{background:#1e2a3c;color:var(--a);}
+  a.card.b .tag{background:#3a2717;color:var(--b);}
+  a.card h2{font-family:var(--serif);font-size:1.35rem;margin:0 0 .4em;}
+  a.card p{color:var(--muted);font-size:.9rem;margin:0;}
+  footer{margin-top:2.4em;font-size:.78rem;color:var(--muted);}
+  footer a{color:var(--muted);}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">26 Th12 2026 → 03 Th1 2027 · 9 ngày 8 đêm</p>
+    <h1>Cực Bắc Countdown</h1>
+    <p class="sub">Hai phương án road trip xe máy vùng cao cuối năm 2026 — chọn bản phù hợp với nhóm trước khi chốt lịch.</p>
+    <div class="cards">
+      <a class="card a" href="plan-a.html">
+        <span class="tag">Phương án A</span>
+        <h2>Sa Pa + Hà Giang Loop</h2>
+        <p>Trọn cả ruộng bậc thang Sa Pa lẫn cao nguyên đá Hà Giang, lịch căng hơn.</p>
+      </a>
+      <a class="card b" href="plan-b.html">
+        <span class="tag">Phương án B · Khuyến nghị</span>
+        <h2>Hà Giang Loop</h2>
+        <p>Dồn trọn cho Hà Giang, có ngày nghỉ dự phòng, không nhồi lịch.</p>
+      </a>
+    </div>
+    <footer>Trang tĩnh, mở offline được nếu tải file HTML về máy.</footer>
+  </div>
+</body>
+</html>
