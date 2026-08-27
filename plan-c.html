@@ -65,6 +65,10 @@
   nav.jump .inner::-webkit-scrollbar{display:none;}
   nav.jump a{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);text-decoration:none;white-space:nowrap;padding:.2em 0;border-bottom:2px solid transparent;}
   nav.jump a:hover, nav.jump a:focus-visible{color:var(--ink);border-color:var(--gold);}
+  nav.jump .fade{position:absolute;top:0;bottom:0;width:32px;pointer-events:none;z-index:2;opacity:0;transition:opacity .18s;}
+  nav.jump .fade.left{left:0;background:linear-gradient(to right, var(--bg), transparent);}
+  nav.jump .fade.right{right:0;background:linear-gradient(to left, var(--bg), transparent);}
+  nav.jump:not(.at-left) .fade.left, nav.jump:not(.at-right) .fade.right{opacity:1;}
 
   .hero{position:relative;min-height:min(84vh,720px);display:flex;align-items:flex-end;overflow:hidden;background:var(--ink);}
   .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%;opacity:.88;}
@@ -190,6 +194,8 @@
 </style>
 
 <nav class="jump">
+  <div class="fade left" aria-hidden="true"></div>
+  <div class="fade right" aria-hidden="true"></div>
   <div class="inner">
     <a href="#thuvienanh">Thư viện ảnh</a>
     <a href="#tomtat">Tóm tắt</a>
@@ -729,6 +735,19 @@
 
 <script>
 (function(){
+  document.querySelectorAll('nav.jump').forEach(function(nav){
+    var inner = nav.querySelector('.inner');
+    if(!inner) return;
+    function update(){
+      var maxScroll = inner.scrollWidth - inner.clientWidth;
+      nav.classList.toggle('at-left', inner.scrollLeft <= 1);
+      nav.classList.toggle('at-right', maxScroll <= 1 || inner.scrollLeft >= maxScroll - 1);
+    }
+    inner.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update);
+    update();
+  });
+
   function wireBig(track, dotsWrap, prevSel, nextSel){
     if(!track) return;
     var prevBtns = Array.prototype.slice.call(document.querySelectorAll(prevSel));
